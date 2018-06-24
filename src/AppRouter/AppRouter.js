@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
 import Home from "../Home/Home";
 import Products from "../Products/Products";
 import Pdp from "../Pdp/Pdp";
@@ -16,6 +17,7 @@ const AppRouter = () => (
         <Route path="/pdp/:id" component={Pdp} />
         <Route path="/wishlist" component={Wishlist} />
       </Switch>
+      <Footer />
     </div>
   </BrowserRouter>
 );
