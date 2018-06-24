@@ -5,9 +5,10 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case "test":
+    case "TOGGLE_LOGIN":
       return {
-        state
+        ...state,
+        isAuthenticated: !action.isAuthenticated
       };
     default:
       return state;

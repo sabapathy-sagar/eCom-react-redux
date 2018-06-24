@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Login from "../Login/Login";
 
 export default () => (
   <section className="hero is-dark">
@@ -21,6 +22,7 @@ export default () => (
             Wishlist
           </Link>
           <hr />
+          <Login />
         </div>
       </div>
     </div>
