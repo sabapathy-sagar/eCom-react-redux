@@ -3,6 +3,8 @@ import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import configureStore from "./store/configureStore";
 import AppRouter from "./AppRouter/AppRouter";
+import "bulma/css/bulma.css";
+import "bulma-extensions/dist/css/bulma-extensions.min.css";
 
 const store = configureStore();
 
