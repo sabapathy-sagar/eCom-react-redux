@@ -8,7 +8,7 @@ export default (state = initialState, action) => {
     case "TOGGLE_LOGIN":
       return {
         ...state,
-        isAuthenticated: !action.isAuthenticated
+        isAuthenticated: !state.isAuthenticated
       };
     default:
       return state;

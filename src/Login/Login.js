@@ -4,7 +4,7 @@ import { toggleLogin } from "../actions/login";
 
 export class Login extends React.Component {
   onLoginButtonClicked = () => {
-    this.props.toggleLogin(this.props.isAuthenticated);
+    this.props.toggleLogin();
   };
 
   render() {

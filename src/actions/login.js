@@ -1,5 +1,4 @@
 //TOGGLE_LOGIN
-export const toggleLogin = (isAuthenticated = false) => ({
-  type: "TOGGLE_LOGIN",
-  isAuthenticated
+export const toggleLogin = () => ({
+  type: "TOGGLE_LOGIN"
 });
