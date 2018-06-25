@@ -1,10 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
 import { toggleLogin } from "../actions/login";
+import withStorage from "../Hoc/withStorage";
 
 export class Login extends React.Component {
   onLoginButtonClicked = () => {
     this.props.toggleLogin();
+    this.props.save("isAuthenticated", !this.props.isAuthenticated);
   };
 
   render() {
@@ -24,7 +26,9 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  toggleLogin: isAuthenticated => dispatch(toggleLogin(isAuthenticated))
+  toggleLogin: isAuthenticated => dispatch(toggleLogin())
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+const loginWithStorage = withStorage(Login);
+
+export default connect(mapStateToProps, mapDispatchToProps)(loginWithStorage);

@@ -10,6 +10,11 @@ export default (state = initialState, action) => {
         ...state,
         isAuthenticated: !state.isAuthenticated
       };
+    case "SET_LOGIN":
+      return {
+        ...state,
+        isAuthenticated: action.isAuthenticated
+      };
     default:
       return state;
   }
