@@ -5,7 +5,6 @@ const withStorage = WrappedComponent => {
     load = key => localStorage.getItem(key);
 
     save = (key, value) => {
-      console.log("key, value", key, value);
       localStorage.setItem(key, value);
     };
 

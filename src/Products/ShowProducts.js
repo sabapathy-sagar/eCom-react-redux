@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import {connect} from "react-redux";
 
-export default class ShowProducts extends React.Component{
+export class ShowProducts extends React.Component{
   constructor(props){
     super(props);
   }
@@ -20,6 +21,16 @@ export default class ShowProducts extends React.Component{
               <span className="tag is-info"> Name: </span>
               <span className="tag is-light">{product.name.toUpperCase()}</span>
             </div>
+            <div>
+            <span className="tag is-info"> Price:</span>
+              {this.props.isAuthenticated ? (
+                      <span className="tag is-light">
+                        {product.discountedPrice} $
+                      </span>
+                    ) : (
+                      <span className="tag is-light">{product.price} $</span>
+                    )}
+            </div>
           </Link>
         </li>
       ))}
@@ -28,39 +39,8 @@ export default class ShowProducts extends React.Component{
   }
 }
 
-// export default ({ products }) => {
-//   return (
-//     <ul className="menu-list">
-//       {products.map(product => (
-//         <li className="has-background-grey-lighter" key={product.id}>
-//           <Link
-//             to={{
-//               pathname: `/pdp/${product.id}`,
-//               state: { productData: product }
-//             }}
-//           >
-//             <div>
-//               <span className="tag is-info"> Name: </span>
-//               <span className="tag is-light">{product.name.toUpperCase()}</span>
-//             </div>
-//           </Link>
-//         </li>
-//       ))}
-//     </ul>
-//   );
-// };
+const mapStateToProps = state => ({
+  isAuthenticated: state.isAuthenticated
+});
 
-// <div>
-// <span className="tag is-info"> Price:</span>
-// <LoginContext.Consumer>
-//   {context =>
-//     context.isAuthenticated ? (
-//       <span className="tag is-light">
-//         {product.discountedPrice} $
-//       </span>
-//     ) : (
-//       <span className="tag is-light">{product.price} $</span>
-//     )
-//   }
-// </LoginContext.Consumer>
-// </div>
+export default connect(mapStateToProps)(ShowProducts);
