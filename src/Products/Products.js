@@ -56,37 +56,38 @@ export default class Products extends React.Component {
     });
   }
 
-  render() {
+  render() 
+  {
     return (
-      <div class="menu">
-        <h1 class="menu-label has-text-black has-background-primary">
+      <div className="menu">
+        <h1 className="menu-label has-text-black has-background-primary">
           Here are a list of products for you!!
         </h1>
         <div />
-        <div class="columns is-mobile is-gapless">
-          <div class="column">
+        <div className="columns is-mobile is-gapless">
+          <div className="column">
             <button
-              class="button is-info is-outlined is-small"
+              className="button is-info is-outlined is-small"
               onClick={this.priceSort}
             >
               Sort by Price
             </button>
           </div>
-          <div class="column">
+          <div className="column">
             <input
               id="sliderWithValue"
-              class="slider has-output is-fullwidth is-info is-small"
+              className="slider has-output is-fullwidth is-info is-small"
               type="range"
               min="0"
               max="100"
               onChange={this.priceFilter}
               value={this.state.rangeSliderValue}
             />
-            <output for="sliderWithValue">{this.state.rangeSliderValue}</output>
+            <output htmlFor="sliderWithValue">{this.state.rangeSliderValue}</output>
           </div>
-          <div class="column">
+          <div className="column">
             <button
-              class="button is-info is-outlined is-small"
+              className="button is-info is-outlined is-small"
               onClick={this.nameSort}
             >
               Sort by Name

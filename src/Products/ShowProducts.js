@@ -1,11 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default ({ products }) => {
-  return (
-    <ul class="menu-list">
-      {products.map(product => (
-        <li class="has-background-grey-lighter" key={product.id}>
+export default class ShowProducts extends React.Component{
+  constructor(props){
+    super(props);
+  }
+  render(){
+    return(
+      <ul className="menu-list">
+        {this.props.products.map(product => (
+          <li className="has-background-grey-lighter" key={product.id}>
           <Link
             to={{
               pathname: `/pdp/${product.id}`,
@@ -13,26 +17,49 @@ export default ({ products }) => {
             }}
           >
             <div>
-              <span class="tag is-info"> Name: </span>
-              <span class="tag is-light">{product.name.toUpperCase()}</span>
+              <span className="tag is-info"> Name: </span>
+              <span className="tag is-light">{product.name.toUpperCase()}</span>
             </div>
           </Link>
         </li>
       ))}
     </ul>
-  );
-};
+    )
+  }
+}
+
+// export default ({ products }) => {
+//   return (
+//     <ul className="menu-list">
+//       {products.map(product => (
+//         <li className="has-background-grey-lighter" key={product.id}>
+//           <Link
+//             to={{
+//               pathname: `/pdp/${product.id}`,
+//               state: { productData: product }
+//             }}
+//           >
+//             <div>
+//               <span className="tag is-info"> Name: </span>
+//               <span className="tag is-light">{product.name.toUpperCase()}</span>
+//             </div>
+//           </Link>
+//         </li>
+//       ))}
+//     </ul>
+//   );
+// };
 
 // <div>
-// <span class="tag is-info"> Price:</span>
+// <span className="tag is-info"> Price:</span>
 // <LoginContext.Consumer>
 //   {context =>
 //     context.isAuthenticated ? (
-//       <span class="tag is-light">
+//       <span className="tag is-light">
 //         {product.discountedPrice} $
 //       </span>
 //     ) : (
-//       <span class="tag is-light">{product.price} $</span>
+//       <span className="tag is-light">{product.price} $</span>
 //     )
 //   }
 // </LoginContext.Consumer>
